@@ -63,6 +63,6 @@ app.post('/send-message', (req, res) => {
 });
 
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT, () => {
     console.log('app listening');
 });
