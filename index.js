@@ -51,18 +51,20 @@ app.post('/send-message', (req, res) => {
         if(err){
             return res.status(401).json({
                 ok: false,
-                msg: 'error al enviar email'
+                msg: `error al enviar email -- ${err}`
+            })
+        } else {
+            return res.status(200).json({
+                ok: true,
+                msg: `mensaje enviado`
             })
         }
     });
 
-    res.send({
-        ok: true,
-        msg: 'mensaje enviado'
-    });
+    return;
 });
 
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log('app listening');
 });
